@@ -68,11 +68,11 @@ def main():
             elif player_1 == 'scissors':
                 player_2 = 'rock'
 
-        if player_1 == 'rock' or player_2 == 'rock':
+        if player_1 == 'rock':
             player_1_score += 1
-        elif player_1 == 'paper' or player_2 == 'paper':
+        elif player_1 == 'paper':
             player_1_score += 2
-        elif player_1 == 'scissors' or player_2 == 'scissors':
+        elif player_1 == 'scissors':
             player_1_score += 3
 
         if player_2 == 'rock':
