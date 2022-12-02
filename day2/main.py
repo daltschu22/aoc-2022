@@ -22,8 +22,6 @@ def r_p_s(player_1, player_2):
     else:
         return None
 
-
-
 def main():
     # Get the input file and read lines
     input_file = sys.argv[1]
@@ -52,6 +50,24 @@ def main():
             if col_b in value:
                 player_2 = key
 
+        #PART 2 LOSE CONDITION
+        if col_b == 'Y': #draw
+            player_2 = player_1
+        if col_b == 'X': #lose
+            if player_1 == 'rock':
+                player_2 = 'scissors'
+            elif player_1 == 'paper':
+                player_2 = 'rock'
+            elif player_1 == 'scissors':
+                player_2 = 'paper'
+        if col_b == 'Z': #win
+            if player_1 == 'rock':
+                player_2 = 'paper'
+            elif player_1 == 'paper':
+                player_2 = 'scissors'
+            elif player_1 == 'scissors':
+                player_2 = 'rock'
+
         if player_1 == 'rock' or player_2 == 'rock':
             player_1_score += 1
         elif player_1 == 'paper' or player_2 == 'paper':
@@ -59,7 +75,15 @@ def main():
         elif player_1 == 'scissors' or player_2 == 'scissors':
             player_1_score += 3
 
+        if player_2 == 'rock':
+            player_2_score += 1
+        elif player_2 == 'paper':
+            player_2_score += 2
+        elif player_2 == 'scissors':
+            player_2_score += 3
+
         winner = r_p_s(player_1, player_2)
+
         if winner is None:
             player_1_score += 3
             player_2_score += 3
@@ -71,6 +95,7 @@ def main():
 
     print(f'Player 1: {player_1_score}')
     print(f'Player 2: {player_2_score}')
+
 
 
 if __name__ == '__main__':
